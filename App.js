@@ -7,6 +7,11 @@ import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignupScreen';
 import HomeScreen from './screens/HomeScreen';
 import ImageDetailScreen from './screens/ImageDetailScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import PostsScreen from './screens/PostsScreen';
+import AddPostScreen from './screens/AddPostScreen';
+import PostDetailScreen from './screens/PostDetailScreen';
+import LocationScreen from './screens/LocationScreen';
 
 
 
@@ -41,6 +46,11 @@ const App = () => {
             <Stack.Screen name="SignUp" component={SignUpScreen} />
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="ImageDetail" component={ImageDetailScreen} />
+            <Stack.Screen name="Profile" component={ProfileScreen} />
+            <Stack.Screen name='Posts' component={PostsScreen}></Stack.Screen>
+            <Stack.Screen name='AddPost' component={AddPostScreen}></Stack.Screen>
+            <Stack.Screen name='PostDetails' component={PostDetailScreen}></Stack.Screen>
+            <Stack.Screen name='Location' component={LocationScreen}></Stack.Screen>
           </>
         )}
       </Stack.Navigator>

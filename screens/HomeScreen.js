@@ -104,10 +104,294 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+// import * as ImagePicker from 'expo-image-picker';
+// import { auth } from '../firebaseConfig'; 
+
+// const HomeScreen = ({ navigation }) => {
+//   const [selectedImage, setSelectedImage] = useState(null);
+
+//   useEffect(() => {
+//     requestPermission();
+//   }, []);
+
+//   const requestPermission = async () => {
+//     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+//     if (status !== 'granted') {
+//       console.error('Permission to access media library denied');
+//     }
+//   };
+
+//   const handleDetectAnimal = () => {
+//     navigation.navigate('ImageDetail', { selectedImage });
+//     console.log('pressed');
+//   };
+
+//   const handleImagePicker = async () => {
+//     console.log('image');
+//     const result = await ImagePicker.launchImageLibraryAsync({
+//       mediaTypes: ImagePicker.MediaTypeOptions.Images,
+//       allowsEditing: false,
+//       aspect: [4, 3],
+//       quality: 1,
+//     });
+
+//     if (!result.cancelled) {
+//       setSelectedImage(result.assets[0].uri);
+//       console.log(result.assets[0].uri)
+//     }
+//   };
+
+//   const handleLogout = () => {
+//     auth.signOut().then(() => {
+//       console.log('User signed out successfully');
+//       // Navigate to your login screen or any other screen you desire
+//       navigation.navigate('Login');
+//     }).catch((error) => {
+//       console.error('Error signing out:', error);
+//     });
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.title}>Animal Detection App</Text>
+
+//       {selectedImage && <Image source={{ uri: selectedImage }} style={styles.imagePreview} />}
+//       <TouchableOpacity style={styles.imagePickerButton} onPress={handleImagePicker}>
+//         <Text style={styles.buttonText}>Select Image</Text>
+//       </TouchableOpacity>
+
+//       <TouchableOpacity
+//         style={styles.detectButton}
+//         onPress={handleDetectAnimal}
+//       >
+//         <Text style={styles.buttonText}>Detect Animal</Text>
+//       </TouchableOpacity>
+
+//       <TouchableOpacity
+//         style={styles.logoutButton}
+//         onPress={handleLogout}
+//       >
+//         <Text style={styles.buttonText}>Logout</Text>
+//       </TouchableOpacity>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#1D2B53',
+//     padding: 16,
+//   },
+//   title: {
+//     fontSize: 24,
+//     marginBottom: 16,
+//     color: '#FAEF5D',
+//   },
+//   imagePreview: {
+//     width: 250,
+//     height: 250,
+//     borderRadius: 4,
+//     marginBottom: 16,
+//   },
+//   detectButton: {
+//     backgroundColor: '#33CC66',
+//     padding: 16,
+//     borderRadius: 8,
+//     width: '80%',
+//     alignItems: 'center',
+//     marginBottom: 12,
+//   },
+//   imagePickerButton: {
+//     backgroundColor: '#007BFF',
+//     padding: 16,
+//     borderRadius: 8,
+//     width: '80%',
+//     alignItems: 'center',
+//     marginBottom: 16,
+//     marginTop: 8,
+//   },
+//   logoutButton: {
+//     backgroundColor: '#FF5733',
+//     padding: 16,
+//     borderRadius: 8,
+//     width: '80%',
+//     alignItems: 'center',
+//     marginTop: 12,
+//   },
+//   buttonText: {
+//     color: 'white',
+//     fontSize: 18,
+//   },
+// });
+
+// export default HomeScreen;
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import * as ImagePicker from 'expo-image-picker';
+// import { auth } from '../firebaseConfig'; 
+
+// const Tab = createBottomTabNavigator();
+
+// const ProfileScreen = () => (
+//   <View style={styles.container}>
+//     <Text style={styles.title}>Profile Screen</Text>
+//     {/* Add your profile info and posts section here */}
+//   </View>
+// );
+
+// const HomeScreen = ({ navigation }) => {
+//   const [selectedImage, setSelectedImage] = useState(null);
+
+//   useEffect(() => {
+//     requestPermission();
+//   }, []);
+
+//   const requestPermission = async () => {
+//     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+//     if (status !== 'granted') {
+//       console.error('Permission to access media library denied');
+//     }
+//   };
+
+//   const handleDetectAnimal = () => {
+//     navigation.navigate('ImageDetail', { selectedImage });
+//     console.log('pressed');
+//   };
+
+//   const handleImagePicker = async () => {
+//     console.log('image');
+//     const result = await ImagePicker.launchImageLibraryAsync({
+//       mediaTypes: ImagePicker.MediaTypeOptions.Images,
+//       allowsEditing: false,
+//       aspect: [4, 3],
+//       quality: 1,
+//     });
+
+//     if (!result.cancelled) {
+//       setSelectedImage(result.assets[0].uri);
+//       console.log(result.assets[0].uri)
+//     }
+//   };
+
+//   const handleLogout = () => {
+//     auth.signOut().then(() => {
+//       console.log('User signed out successfully');
+//       // Navigate to your login screen or any other screen you desire
+//       navigation.navigate('Login');
+//     }).catch((error) => {
+//       console.error('Error signing out:', error);
+//     });
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.title}>Animal Detection App</Text>
+
+//       {selectedImage && <Image source={{ uri: selectedImage }} style={styles.imagePreview} />}
+//       <TouchableOpacity style={styles.imagePickerButton} onPress={handleImagePicker}>
+//         <Text style={styles.buttonText}>Select Image</Text>
+//       </TouchableOpacity>
+
+//       <TouchableOpacity
+//         style={styles.detectButton}
+//         onPress={handleDetectAnimal}
+//       >
+//         <Text style={styles.buttonText}>Detect Animal</Text>
+//       </TouchableOpacity>
+
+//       <TouchableOpacity
+//         style={styles.logoutButton}
+//         onPress={handleLogout}
+//       >
+//         <Text style={styles.buttonText}>Logout</Text>
+//       </TouchableOpacity>
+//     </View>
+//   );
+// };
+
+// const HomeTabNavigator = () => (
+//   <Tab.Navigator>
+//     <Tab.Screen name="Home" component={HomeScreen} />
+//     <Tab.Screen name="Profile" component={ProfileScreen} />
+//   </Tab.Navigator>
+// );
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#1D2B53',
+//     padding: 16,
+//   },
+//   title: {
+//     fontSize: 24,
+//     marginBottom: 16,
+//     color: '#FAEF5D',
+//   },
+//   imagePreview: {
+//     width: 250,
+//     height: 250,
+//     borderRadius: 4,
+//     marginBottom: 16,
+//   },
+//   detectButton: {
+//     backgroundColor: '#33CC66',
+//     padding: 16,
+//     borderRadius: 8,
+//     width: '80%',
+//     alignItems: 'center',
+//     marginBottom: 12,
+//   },
+//   imagePickerButton: {
+//     backgroundColor: '#007BFF',
+//     padding: 16,
+//     borderRadius: 8,
+//     width: '80%',
+//     alignItems: 'center',
+//     marginBottom: 16,
+//     marginTop: 8,
+//   },
+//   logoutButton: {
+//     backgroundColor: '#FF5733',
+//     padding: 16,
+//     borderRadius: 8,
+//     width: '80%',
+//     alignItems: 'center',
+//     marginTop: 12,
+//   },
+//   buttonText: {
+//     color: 'white',
+//     fontSize: 18,
+//   },
+// });
+
+// export default HomeTabNavigator;
+
+
+
+
+
+
+
+
+
+// HomeScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { auth } from '../firebaseConfig'; 
+
 
 const HomeScreen = ({ navigation }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -128,6 +412,10 @@ const HomeScreen = ({ navigation }) => {
     console.log('pressed');
   };
 
+  const handleViewPosts = () => {
+    navigation.navigate('Posts');
+  };
+
   const handleImagePicker = async () => {
     console.log('image');
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -141,6 +429,10 @@ const HomeScreen = ({ navigation }) => {
       setSelectedImage(result.assets[0].uri);
       console.log(result.assets[0].uri)
     }
+  };
+
+  const handleLocation = () => {
+    navigation.navigate('Location'); // Navigate to the Location screen
   };
 
   const handleLogout = () => {
@@ -168,16 +460,28 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>Detect Animal</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.viewPostsButton}
+        onPress={handleViewPosts}
+      >
+        <Text style={styles.buttonText}>View Posts</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.locationButton} onPress={handleLocation}>
+        <Text style={styles.buttonText}>Location</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.logoutButton}
         onPress={handleLogout}
       >
         <Text style={styles.buttonText}>Logout</Text>
+   
       </TouchableOpacity>
+      {/* <TabNavigator></TabNavigator> */}
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -197,6 +501,14 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 4,
     marginBottom: 16,
+  },
+  viewPostsButton: {
+    backgroundColor: '#FF5733',
+    padding: 16,
+    borderRadius: 8,
+    width: '80%',
+    alignItems: 'center',
+    marginTop: 12,
   },
   detectButton: {
     backgroundColor: '#33CC66',
@@ -223,6 +535,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 12,
   },
+  locationButton: {
+    backgroundColor: '#4287f5',
+    padding: 16,
+    borderRadius: 8,
+    width: '80%',
+    alignItems: 'center',
+    marginTop: 12,
+  },
   buttonText: {
     color: 'white',
     fontSize: 18,
@@ -230,3 +550,12 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+
+
+
+
+
+
+
+

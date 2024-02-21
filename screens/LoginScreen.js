@@ -480,7 +480,7 @@ export default function LoginScreen({navigation}) {
             >
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
-                        <Ionicons name="md-person" size={64} color="#e80505" />
+                        {/* <Ionicons name="md-person" size={64} color="#e80505" /> */}
                         <Text style={styles.welcomeText}>
                             Welcome, <Text style={styles.usernameText}>{welcomeUserName}</Text>
                         </Text>
@@ -490,7 +490,7 @@ export default function LoginScreen({navigation}) {
                                 navigation.replace('Home');
                             }}
                         >
-                            <Text style={styles.cancelButtonText}>Enter the Area 51</Text>
+                            <Text style={styles.cancelButtonText}>Enter</Text>
                         </TouchableOpacity>
                     </View>
 
