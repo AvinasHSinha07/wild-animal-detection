@@ -12,6 +12,9 @@ import PostsScreen from './screens/PostsScreen';
 import AddPostScreen from './screens/AddPostScreen';
 import PostDetailScreen from './screens/PostDetailScreen';
 import LocationScreen from './screens/LocationScreen';
+import RatingScreen from './screens/RatingScreen';
+import Reviews from './screens/Reviews';
+import UserProfile from './screens/UserProfile';
 
 
 
@@ -51,6 +54,9 @@ const App = () => {
             <Stack.Screen name='AddPost' component={AddPostScreen}></Stack.Screen>
             <Stack.Screen name='PostDetails' component={PostDetailScreen}></Stack.Screen>
             <Stack.Screen name='Location' component={LocationScreen}></Stack.Screen>
+            <Stack.Screen name='Rating' component={RatingScreen}></Stack.Screen>
+            <Stack.Screen name='Reviews' component={Reviews}></Stack.Screen>
+            <Stack.Screen name='UserProfile' component={UserProfile}></Stack.Screen>
           </>
         )}
       </Stack.Navigator>

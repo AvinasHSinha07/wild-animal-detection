@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, initializeAuth } from "firebase/auth";
+import { getAuth,  } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 import { getFirestore } from "firebase/firestore";
 
@@ -15,8 +16,11 @@ const firebaseConfig = {
   messagingSenderId: "409969280958",
 
   appId: "1:409969280958:web:c82d26a76bcec34e335bef",
+  
+  storageBucket: 'wild-animal-detection-28089.appspot.com',
 };
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const storage = getStorage(app);

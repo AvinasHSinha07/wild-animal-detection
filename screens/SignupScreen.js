@@ -720,8 +720,12 @@ import { Picker } from '@react-native-picker/picker'; // Import Picker component
 import { FontAwesome } from '@expo/vector-icons';
 import { useEffect } from 'react';
 import { gsap, Back } from 'gsap-rn';
+import countryCityData from '../assets/countries_cities.json';
 
 export default function SignUp({navigation}) {
+    const [selectedCountry, setSelectedCountry] = useState('');
+    const [selectedCity, setSelectedCity] = useState('');
+    const [cities, setCities] = useState([]);
 
     const [userName, setUserName]= useState('');
     const [email, setEmail] = useState('');
@@ -732,7 +736,7 @@ export default function SignUp({navigation}) {
     const [birthDate, setbirthDate] = useState(moment(new Date()).format('DD/MM/YYYY'));
     const [birthDateModalStatus, setbirthDateModalStatus] = useState(false);
     const [loading, setloading] = useState(false);
-    const [selectedCountry, setSelectedCountry] = useState('');
+    // const [selectedCountry, setSelectedCountry] = useState('');
     const [selectedGender, setSelectedGender] = useState('');
 
     const viewRef = useRef(null);
@@ -752,6 +756,18 @@ export default function SignUp({navigation}) {
         setbirthDate('');
         setuserNameErrorMessage(['','']);
     };
+
+    useEffect(() => {
+        // Fetch the list of cities when a country is selected
+        const countryData = countryCityData.countries.find(country => country.name === selectedCountry);
+        if (countryData) {
+          setCities(countryData.cities);
+        } else {
+          setCities([]);
+        }
+      }, [selectedCountry]);
+
+
 
     useEffect(() => {
         const checkUniqueUserName = async ()=>{
@@ -837,11 +853,11 @@ export default function SignUp({navigation}) {
     return (
         <View style={styles.container}>
             <ScrollView style={{backgroundColor:'#fff', height:'100%'}} showsVerticalScrollIndicator={false}>
-                <Image
+                {/* <Image
                     ref={viewRef}
                     style={styles.logo}
                     source={require('../assets/logo.avif')}
-                />
+                /> */}
                 <TextInput
                     style={[styles.input, {borderColor: userNameErrorMessage[1]}]}
                     placeholderTextColor="#aaaaaa"
@@ -901,7 +917,7 @@ export default function SignUp({navigation}) {
                         setbirthDateModalStatus(false);
                     }}
                 />}
-                <View style={styles.dropdownContainer}>
+                {/* <View style={styles.dropdownContainer}>
                     <Text style={styles.dropdownLabel}>Country:</Text>
                     <Picker
                         style={styles.dropdown}
@@ -913,7 +929,28 @@ export default function SignUp({navigation}) {
                         <Picker.Item label="UK" value="UK" />
                         <Picker.Item label="Australia" value="Australia" />
                     </Picker>
-                </View>
+                </View> */}
+                 <View>
+      {/* Country Dropdown */}
+      <Picker
+        selectedValue={selectedCountry}
+        onValueChange={(itemValue) => setSelectedCountry(itemValue)}>
+        <Picker.Item label="Select Country" value="" />
+        {countryCityData.countries.map((country, index) => (
+          <Picker.Item key={index} label={country.name} value={country.name} />
+        ))}
+      </Picker>
+
+      {/* City Dropdown */}
+      <Picker
+        selectedValue={selectedCity}
+        onValueChange={(itemValue) => setSelectedCity(itemValue)}>
+        <Picker.Item label="Select City" value="" />
+        {cities.map((city, index) => (
+          <Picker.Item key={index} label={city} value={city} />
+        ))}
+      </Picker>
+    </View>
                 <View style={styles.dropdownContainer}>
                     <Text style={styles.dropdownLabel}>Gender:</Text>
                     <Picker

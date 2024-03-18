@@ -596,6 +596,7 @@ const PostDetailScreen = ({ route }) => {
   const [liked, setLiked] = useState(false);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const [likeCount, setLikeCount] = useState(0);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -604,6 +605,8 @@ const PostDetailScreen = ({ route }) => {
         if (postDoc.exists()) {
           const postData = postDoc.data();
           setPost(postData);
+          setLikeCount(postData.likes ? postData.likes.length : 0);
+          setLiked(postData.likes ? postData.likes.includes(auth.currentUser.uid) : false);
           if (postData.likes) {
             setLiked(postData.likes.includes(auth.currentUser.uid)); // Check if the current user has already liked the post
           }
@@ -647,10 +650,12 @@ const PostDetailScreen = ({ route }) => {
         await updateDoc(likesRef, {
           likes: arrayRemove(userId),
         });
+        setLikeCount(likeCount - 1);
       } else {
         await updateDoc(likesRef, {
           likes: arrayUnion(userId),
         });
+        setLikeCount(likeCount + 1);
       }
       setLiked(!liked); // Toggle liked status
     } catch (error) {
@@ -682,6 +687,7 @@ const PostDetailScreen = ({ route }) => {
         <>
           <Text style={styles.title}>Post Detail</Text>
           <Text style={styles.postText}>{post.content}</Text>
+          <Text style={styles.metaText}>Total Likes: {likeCount}</Text>
           {/* <Text style={styles.metaText}>User ID: {post.user_id}</Text> */}
           <Text style={styles.metaText}>Timestamp: {post.timestamp.toDate().toString()}</Text>
           <View style={styles.actionsContainer}>
