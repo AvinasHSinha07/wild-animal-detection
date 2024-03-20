@@ -28,7 +28,6 @@ const UserProfile = ({ navigation }) => {
     if (!result.cancelled) {
       try {
         console.log(userData)
-        // Generate a unique filename for the uploaded image using the user ID
         const fileName = `profile/${userData.user_id}.jpg`;
 
         const response = await fetch(

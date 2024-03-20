@@ -17,7 +17,7 @@ import Reviews from './screens/Reviews';
 import UserProfile from './screens/UserProfile';
 import Weather from './screens/WeatherUpdate';
 
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 import CountryInfo from './CountryInfo';
 
 const client = new ApolloClient({
