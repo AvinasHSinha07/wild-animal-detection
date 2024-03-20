@@ -457,6 +457,9 @@ const HomeScreen = ({ navigation }) => {
   const handleProfile = () => {
     navigation.navigate('UserProfile');
   };
+  const handleWeather = () => {
+    navigation.navigate('Weather');
+  };
 
 
   const handleLogout = () => {
@@ -501,6 +504,9 @@ const HomeScreen = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.logoutButton} onPress={handleProfile}>
           <Text style={styles.buttonText}>Profile</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.logoutButton} onPress={handleWeather}>
+          <Text style={styles.buttonText}>Weather</Text>
         </TouchableOpacity>
       </LinearGradient>
     </ScrollView>

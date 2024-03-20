@@ -15,6 +15,7 @@ import LocationScreen from './screens/LocationScreen';
 import RatingScreen from './screens/RatingScreen';
 import Reviews from './screens/Reviews';
 import UserProfile from './screens/UserProfile';
+import Weather from './screens/WeatherUpdate';
 
 
 
@@ -57,6 +58,7 @@ const App = () => {
             <Stack.Screen name='Rating' component={RatingScreen}></Stack.Screen>
             <Stack.Screen name='Reviews' component={Reviews}></Stack.Screen>
             <Stack.Screen name='UserProfile' component={UserProfile}></Stack.Screen>
+            <Stack.Screen name='Weather' component={Weather}></Stack.Screen>
           </>
         )}
       </Stack.Navigator>

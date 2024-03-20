@@ -917,21 +917,9 @@ export default function SignUp({navigation}) {
                         setbirthDateModalStatus(false);
                     }}
                 />}
-                {/* <View style={styles.dropdownContainer}>
-                    <Text style={styles.dropdownLabel}>Country:</Text>
-                    <Picker
-                        style={styles.dropdown}
-                        selectedValue={selectedCountry}
-                        onValueChange={(itemValue) => setSelectedCountry(itemValue)}>
-                        <Picker.Item label="Select Country" value="" />
-                        <Picker.Item label="USA" value="USA" />
-                        <Picker.Item label="Canada" value="Canada" />
-                        <Picker.Item label="UK" value="UK" />
-                        <Picker.Item label="Australia" value="Australia" />
-                    </Picker>
-                </View> */}
+             
                  <View>
-      {/* Country Dropdown */}
+
       <Picker
         selectedValue={selectedCountry}
         onValueChange={(itemValue) => setSelectedCountry(itemValue)}>
@@ -941,7 +929,7 @@ export default function SignUp({navigation}) {
         ))}
       </Picker>
 
-      {/* City Dropdown */}
+    
       <Picker
         selectedValue={selectedCity}
         onValueChange={(itemValue) => setSelectedCity(itemValue)}>
@@ -987,6 +975,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor:'#f0f0f0',
         flex: 1,
+    
     },
     title: {
         fontSize:22,

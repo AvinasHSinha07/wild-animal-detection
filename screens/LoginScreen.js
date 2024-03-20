@@ -711,7 +711,7 @@ export default function LoginScreen({navigation}) {
             <Ionicons name={showPassword ? 'eye' : 'eye-off'} size={24} color="#aaaaaa" />
                 </TouchableOpacity>
 
-            <Pressable style={styles.checkboxContainer} onPress={() => setIsRememberMeChecked(!isRememberMeChecked)}>
+            {/* <Pressable style={styles.checkboxContainer} onPress={() => setIsRememberMeChecked(!isRememberMeChecked)}>
                 <Checkbox
                     style={styles.checkbox}
                     status={isRememberMeChecked ? 'checked' : 'unchecked'}
@@ -720,7 +720,7 @@ export default function LoginScreen({navigation}) {
                     color={isRememberMeChecked ? '#e80909' : undefined}
                 />
                 <Text style={styles.checkboxLabel}>Keep me logged in</Text>
-            </Pressable>
+            </Pressable> */}
 
             {errorMessage.length > 0 && <Text style={{ color: 'red', textAlign: 'center' }}>*{errorMessage}*</Text>}
             <TouchableOpacity
@@ -775,6 +775,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       paddingVertical: 20,
+      backgroundColor: '#5356FF'
   },
   logo: {
       width: 150,
@@ -782,12 +783,15 @@ const styles = StyleSheet.create({
       marginBottom: 20,
   },
   input: {
-      height: 40,
+    //   height: 40,
       width: '80%',
-      borderColor: 'gray',
+      borderColor: 'white',
       borderWidth: 1,
       marginBottom: 20,
       paddingHorizontal: 10,
+      backgroundColor : 'white',
+      borderRadius: 10,
+      padding: 10,
   },
   checkboxContainer: {
       flexDirection: 'row',
