@@ -591,7 +591,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const PostDetailScreen = ({ route }) => {
   const { postId } = route.params;
-//   console.log(postId)
+
   const [post, setPost] = useState(null);
   const [liked, setLiked] = useState(false);
   const [comments, setComments] = useState([]);
@@ -735,7 +735,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1D2B53',
+    backgroundColor: '#5356FF',
     padding: 16,
   },
   title: {
@@ -750,7 +750,7 @@ const styles = StyleSheet.create({
   },
   metaText: {
     fontSize: 14,
-    color: '#666',
+    color: 'white',
   },
   actionsContainer: {
     flexDirection: 'row',

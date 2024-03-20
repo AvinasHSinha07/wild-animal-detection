@@ -789,6 +789,20 @@ export default function SignUp({navigation}) {
         
     }, [userName]);
 
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const validateForm = () => {
+        if (!validateEmail(email)) {
+            seterrorMessage("Please provide a valid email");
+            return false;
+        }
+        return true;
+    };
+
     const doFireBaseUpdate = async () => {
         const usersRef = collection(db,'users');
         try {
@@ -852,7 +866,7 @@ export default function SignUp({navigation}) {
 
     return (
         <View style={styles.container}>
-            <ScrollView style={{backgroundColor:'#fff', height:'100%'}} showsVerticalScrollIndicator={false}>
+            <ScrollView style={{backgroundColor:'#fff', height:'100%'}} showsVerticalScrollIndicator={true}>
                 {/* <Image
                     ref={viewRef}
                     style={styles.logo}

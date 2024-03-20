@@ -460,6 +460,9 @@ const HomeScreen = ({ navigation }) => {
   const handleWeather = () => {
     navigation.navigate('Weather');
   };
+  const handleGraphQl = () => {
+    navigation.navigate('CountryInfo');
+  };
 
 
   const handleLogout = () => {
@@ -493,9 +496,7 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity style={styles.locationButton} onPress={handleLocation}>
           <Text style={styles.buttonText}>Location</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-          <Text style={styles.buttonText}>Logout</Text>
-        </TouchableOpacity>
+       
         <TouchableOpacity style={styles.logoutButton} onPress={handleRating}>
           <Text style={styles.buttonText}>Rate this App</Text>
         </TouchableOpacity>
@@ -508,6 +509,12 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity style={styles.logoutButton} onPress={handleWeather}>
           <Text style={styles.buttonText}>Weather</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.logoutButton} onPress={handleGraphQl}>
+          <Text style={styles.buttonText}>Graphql</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+          <Text style={styles.buttonText}>Logout</Text>
+        </TouchableOpacity>
       </LinearGradient>
     </ScrollView>
   );
@@ -518,6 +525,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    
   },
   gradient: {
     flex: 1,

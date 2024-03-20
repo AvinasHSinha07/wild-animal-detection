@@ -17,9 +17,13 @@ import Reviews from './screens/Reviews';
 import UserProfile from './screens/UserProfile';
 import Weather from './screens/WeatherUpdate';
 
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import CountryInfo from './CountryInfo';
 
-
-
+const client = new ApolloClient({
+  uri: 'https://countries.trevorblades.com/graphql',
+  cache: new InMemoryCache(),
+});
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -36,6 +40,7 @@ const App = () => {
   }, []);
 
   return (
+    <ApolloProvider client={client}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName={isSplashVisible ? 'Splash' : 'Login'}>
         {isSplashVisible ? (
@@ -59,10 +64,12 @@ const App = () => {
             <Stack.Screen name='Reviews' component={Reviews}></Stack.Screen>
             <Stack.Screen name='UserProfile' component={UserProfile}></Stack.Screen>
             <Stack.Screen name='Weather' component={Weather}></Stack.Screen>
+            <Stack.Screen name='CountryInfo' component={CountryInfo} countryCode="US"></Stack.Screen>
           </>
         )}
       </Stack.Navigator>
     </NavigationContainer>
+    </ApolloProvider>
   );
 };
 
